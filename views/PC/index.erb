@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body bgcolor="#FFFF66">
+<link rel="stylesheet" href="/css/style.css">
+<h2>開発中なので判定ガバガバですがお許しください...</h2>
+<h3>Startをクリックすると始まります、よければご投稿ください</h3>
+<canvas id="canvas"></canvas>
+<div style="text-align:center;width:500px;margin: 0 100px;">
+<button type="button" id="start" value="Check" onclick="onclickfun()" style="height:42px; width:150px;">Start</button>
+</div>
+<script src="/javascript/drawfunction.js"></script>
+<script src="/javascript/main.js"></script>
+<h1 id="rank">ランキング</h1>
+<form action="/game/breakout/new" method="post">
+<p>名前 :<input type="text" name="user_name"></p>
+<p>スコア:<input id="score" type="text" name="score" value="" readonly></p>
+<input type="submit" value="POST">
+</form>
+<ul>
+<% @ranks.each do |rank| %>
+<li>
+<p><%= rank.name %></p>
+<p><%= rank.score %></p>
+</li>
+<% end %>
+</ul>
+</body>
+</html>
